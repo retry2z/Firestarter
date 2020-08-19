@@ -4,21 +4,54 @@
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
-$md-mcgpalette0: (
-    50 : #feeae7,
-    100 : #fdccc2,
-    200 : #fcaa99,
-    300 : #fb8770,
-    400 : #fa6e52,
-    500 : #f95433,
-    600 : #f84d2e,
-    700 : #f74327,
-    800 : #f63a20,
-    900 : #f52914,
+$md-primary: (
+  50 : #fdeae6,
+  100 : #facac1,
+  200 : #f7a797,
+  300 : #f3836d,
+  400 : #f1694e,
+  500 : #ee4e2f,
+  600 : #ec472a,
+  700 : #e93d23,
+  800 : #e7351d,
+  900 : #e22512,
+  A100 : #ffffff,
+  A200 : #ffdfdd,
+  A400 : #ffb0aa,
+  A700 : #ff9890,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+$md-secondary: (
+    50 : #fcf6e0,
+    100 : #f9e7b3,
+    200 : #f5d880,
+    300 : #f0c84d,
+    400 : #edbc26,
+    500 : #eab000,
+    600 : #e7a900,
+    700 : #e4a000,
+    800 : #e19700,
+    900 : #db8700,
     A100 : #ffffff,
-    A200 : #fff2f1,
-    A400 : #ffc2be,
-    A700 : #ffaba4,
+    A200 : #ffeacf,
+    A400 : #ffd49c,
+    A700 : #ffc983,
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -26,10 +59,10 @@ $md-mcgpalette0: (
         300 : #000000,
         400 : #000000,
         500 : #000000,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
         A100 : #000000,
         A200 : #000000,
         A400 : #000000,
@@ -45,8 +78,8 @@ $md-mcgpalette0: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$project-demo-primary: mat-palette($md-mcgpalette0);
-$project-demo-accent: mat-palette($mat-pink, A200, A100, A400);
+$project-demo-primary: mat-palette($md-primary);
+$project-demo-accent: mat-palette($md-secondary, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $project-demo-warn: mat-palette($mat-red);
