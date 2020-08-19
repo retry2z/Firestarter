@@ -4,7 +4,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/retry2z/FireStarter?style=social)
 
 ## Description
-Firestarter is an Angular PWA powered by Firebase.
+Firestarter is an Angular PWA powered by Firebase. This application is about leaving a group notes and it's more like Trello. 
 
 ![](https://firebasestorage.googleapis.com/v0/b/angular-voxer.appspot.com/o/demo-gif.gif?alt=media&token=dadcdb72-eb58-4903-b6b8-c741c27a08c4)
 
