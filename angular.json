@@ -17,6 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "firebase",
+              "@firebase/app",
+              "@firebase/firestore",
+              "@firebase/auth",
+              "@firebase/util",
+              "@firebase/component"
+            ],
             "outputPath": "dist/project-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
