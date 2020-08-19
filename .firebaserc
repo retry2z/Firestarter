@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "firestarter-dev-ebdf6": {
+      "hosting": {
+        "project-demo": [
+          "firestarter-dev-ebdf6"
+        ]
+      }
+    }
+  }
+}
