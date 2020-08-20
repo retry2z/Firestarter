@@ -1,11 +1,15 @@
-<div cdkDropList cdkDropListOrientation="horizontal" ngClass="boards" (cdkDropListDropped)="drop($event)">
-    <app-board cdkDrag *ngFor="let board of boards" [board]="board">
-        <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
-    </app-board>
+<div ngClass="container">
+    <div cdkDropList cdkDropListOrientation="horizontal" ngClass="boards" (cdkDropListDropped)="drop($event)">
+        <app-board cdkDrag *ngFor="let board of boards" [board]="board">
+            <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+        </app-board>
 
-    <div ngClass="board-button">
-        <button mat-raised-button color="accent" cdkDragDisabled>
-            New Board
-        </button>
+        <div ngClass="button-card">
+            <div class="create-button-area">
+            <button mat-raised-button color="accent" cdkDragDisabled>
+                New Board
+            </button>
+        </div>
+        </div>
     </div>
 </div>

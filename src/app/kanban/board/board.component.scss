@@ -1,8 +1,9 @@
 .outer-card {
-    margin: 10px;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 22em;
     padding: 10px;
+    margin: 1em auto;
     background: #212121;
 }
   
@@ -28,5 +29,4 @@
 .yellow { background: #ffcf44; color: black; }
 .purple { background: #b15cff; }
 .red { background: #e74a4a; }
-
 .gray { background: gray; text-decoration: line-through; }
