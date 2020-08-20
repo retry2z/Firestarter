@@ -3,15 +3,15 @@
     <h1>Login</h1>
 
     <button mat-raised-button appGoogleSignin>
-      <img class="googleLogo" src="/assets/google-logo.svg" /> Login with Google
+      <img ngClass="googleLogo" src="/assets/google-logo.svg" /> Login with Google
     </button>
 
-    <div class="form-box">
+    <div ngClass="form-box">
       <app-email-login></app-email-login>
     </div>
   </div>
 
-  <div *ngIf="auth.authState | async as user" class="logout">
+  <div *ngIf="auth.authState | async as user" ngClass="logout">
     <p>
       Logged in as <strong>{{ user.email }}</strong>
     </p>
