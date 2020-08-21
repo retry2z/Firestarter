@@ -5,39 +5,40 @@ import { BoardService } from '../board.service';
 @Component({
   selector: 'app-task-dialog',
   template: `
+  <div ngClass="dialog-container">
     <h1 mat-dialog-title>Create a new task</h1>
-    <br />
 
-    <div ngClass="task_content" mat-dialog-content>
-      <mat-form-field>
-      <textarea placeholder="Task description" matInput [(ngModel)]="data.task.description"></textarea>
-      </mat-form-field>
-      <br />
+    <div mat-dialog-content>
+        <p>What shall we do now?</p>
+        <br />
+        <mat-form-field>
+            <textarea placeholder="Description" matInput [(ngModel)]="data.task.description"></textarea>
+        </mat-form-field>
+        <br />
 
-      <mat-button-toggle-group [(ngModel)]="data.task.label">
-        <mat-button-toggle *ngFor="let option of labelOptions" [value]="option">
-          <mat-icon [ngClass]="option">{{option === 'gray'? 'check_circle' : 'lens'}}</mat-icon>
-        </mat-button-toggle>  
+        <mat-button-toggle-group [(ngModel)]="data.task.label">
+            <mat-button-toggle *ngFor="let option of labelOptions" [value]="option">
+                <mat-icon [ngClass]="option">{{option === 'gray'? 'check_circle' : 'lens'}}</mat-icon>
+            </mat-button-toggle>
 
-      </mat-button-toggle-group>
+        </mat-button-toggle-group>
     </div>
     <br />
 
-    <mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Cancel</button>
-      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
-        {{ data.isNew ? 'Add Task' : 'Update Task' }}
+      <button mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial>
+          {{ data.isNew ? 'Add Task' : 'Update Task' }}
       </button>
-    </mat-dialog-actions>
+  </div>
   `,
   styles: [
-    '.task_content textarea { display: block; width: 92%; }',
-    '.blue { color: #71deff; }',
-    '.green { color: #36e9b6; }',
-    '.yellow { color: #ffcf44; }',
-    '.purple { color: #b15cff; }',
-    '.gray { color: gray; }',
-    '.red { color: #e74a4a; }',
+    '.dialog-container { text-align: center; }',
+    '.blue { color: #71deff; };',
+    '.green { color: #36e9b6; };',
+    '.yellow { color: #ffcf44; };',
+    '.purple { color: #b15cff; };',
+    '.gray { color: gray; };',
+    '.red { color: #e74a4a; };',
   ]
 })
 
