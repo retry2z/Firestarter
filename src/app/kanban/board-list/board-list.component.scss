@@ -29,20 +29,6 @@
 .cdk-drag-placeholder {
     opacity: 0.2;
     border: 5px dashed gray;
-
-    min-width: 320px;
-    max-width: 320px;
-    min-height: 22em;
-    margin: 1em auto;
-    padding: 15px;
-    
-    @include tablet {
-        width: 200px;
-    }
-
-    @include desktop {
-        width: 270px;
-    }
 }
   
 .cdk-drag-animating {
