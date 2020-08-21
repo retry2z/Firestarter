@@ -1,0 +1,71 @@
+@mixin desktop {
+    @media (min-width:#{840px}) {
+        @content;
+    }    
+}
+
+@mixin tablet {
+    @media (min-width:#{600px}) {
+        @content;
+    }    
+}
+
+.outer-card {
+    background: #212121; 
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 22em;
+    margin: 1em auto;
+    padding: 15px;   
+
+    text-align: left;
+    
+    @include tablet {
+        min-width: 200px;
+        max-width: 200px;
+    }
+    
+    @include desktop {
+        min-width: 270px;
+        max-width: 270px;
+    }
+
+    mat-card-header {
+        text-transform: uppercase;        
+        justify-content:space-between;
+    }
+}
+  
+.inner-card {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.cdk-drag-animating {
+    transition: transform 300ms ease;
+}
+  
+.tasks.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 300ms ease;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+}
+
+.board-card-footer {
+    position: absolute;  
+    bottom: 0em;
+    padding-bottom: 5px;
+
+    button:not(first-child) {
+        margin-left: 5px;
+    }
+}
+
+.blue { background: #71deff; color: black; }
+.green { background: #36e9b6; color: black;  }
+.yellow { background: #ffcf44; color: black; }
+.purple { background: #b15cff; }
+.red { background: #e74a4a; }
+.gray { background: gray; text-decoration: line-through; }

@@ -1,42 +1,34 @@
-.boards {
-    width: auto;
-    padding: 24px;
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    &::-webkit-scrollbar {
-      height: 4px;
-      width: 4px
-    }
-    &::-webkit-scrollbar-track {
-  //    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      background-color: #000;
-    }
-    &::-webkit-scrollbar {
-      width: 3px;
-      background-color: #000;
-    }
-  
-    &::-webkit-scrollbar-thumb {
-      background-color: #f5f5f5;
-      border: 2px solid #555555;
-    }
-    
-    .handle {
-      position: relative;
-      top: 5px;
-      left: 0;
-      cursor: move;
-    }
+@mixin desktop {
+    @media (min-width:#{840px}) {
+        @content;
+    }    
 }
-  
+
+@mixin tablet {
+    @media (min-width:#{600px}) {
+        @content;
+    }    
+}
+
+.boards {
+    width: 100%;
+    min-height: 22em;
+    margin:0 auto;
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: 285px 285px 285px 285px;
+    }
+}  
   
 .cdk-drag-placeholder {
     opacity: 0.2;
-    width: 350px;
     border: 5px dashed gray;
-    margin: 0 10px;
-    
 }
   
 .cdk-drag-animating {
@@ -47,13 +39,27 @@
     transition: transform 300ms ease;
 }
   
-.board-button {
+.button-card {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 5px gray dashed;
-    width: 300px;
-    padding: 32px;
-    height: 350px;
+
+    min-width: 315px;
+    max-width: 315px;
+    min-height: 22em;
+    margin: 1em auto;
+    padding: 15px;
+
+    @include tablet {
+        min-width: 195px;
+        max-width: 195px;
+        height: calc(22em - 5px);
+    }
+
+    @include desktop {
+        min-width: 255px;
+        max-width: 255px;
+        height: calc(22em - 5px);
+    }
 }
