@@ -25,7 +25,7 @@ export class BoardComponent {
 
   openTaskDialog(task?: Task, idx?: number): void {
     const options = {
-      width: '500px',
+      width: '380px',
       data:
         task ? { task: { ...task }, isNew: false, boardID: this.board.id, idx } :
           { task: { label: 'purple' }, isNew: true }

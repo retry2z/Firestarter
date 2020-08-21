@@ -6,7 +6,9 @@ import { BoardService } from '../board.service';
   selector: 'app-task-dialog',
   template: `
     <h1 mat-dialog-title>Create a new task</h1>
-    <div mat-dialog-content>
+    <br />
+
+    <div ngClass="task_content" mat-dialog-content>
       <mat-form-field>
       <textarea placeholder="Task description" matInput [(ngModel)]="data.task.description"></textarea>
       </mat-form-field>
@@ -19,6 +21,7 @@ import { BoardService } from '../board.service';
 
       </mat-button-toggle-group>
     </div>
+    <br />
 
     <mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Cancel</button>
@@ -28,7 +31,7 @@ import { BoardService } from '../board.service';
     </mat-dialog-actions>
   `,
   styles: [
-    'textarea { display: block; width: 100 %; }',
+    '.task_content textarea { display: block; width: 92%; }',
     '.blue { color: #71deff; }',
     '.green { color: #36e9b6; }',
     '.yellow { color: #ffcf44; }',

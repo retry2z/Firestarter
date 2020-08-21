@@ -35,7 +35,7 @@ export class BoardListComponent implements OnInit, OnDestroy {
   }
 
   openBoardDialog(): void {
-    const options = { width: '420px', data: {} };
+    const options = { width: '340px', data: {} };
     const dialogRef = this.dialog.open(BoardDialogComponent, options);
 
     dialogRef.afterClosed().subscribe(
@@ -46,6 +46,6 @@ export class BoardListComponent implements OnInit, OnDestroy {
         const data = { title: result, priority: this.boards.length };
         this.boardService.createBoard(data);
       });
-      
+
   }
 }
