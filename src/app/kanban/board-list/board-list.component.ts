@@ -46,6 +46,5 @@ export class BoardListComponent implements OnInit, OnDestroy {
         const data = { title: result, priority: this.boards.length };
         this.boardService.createBoard(data);
       });
-
   }
 }
