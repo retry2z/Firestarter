@@ -53,6 +53,16 @@
   opacity: 0.5;
 }
 
+.board-card-footer {
+    position: absolute;  
+    bottom: 0em;
+    padding-bottom: 5px;
+
+    button:not(first-child) {
+        margin-left: 5px;
+    }
+}
+
 .blue { background: #71deff; color: black; }
 .green { background: #36e9b6; color: black;  }
 .yellow { background: #ffcf44; color: black; }
