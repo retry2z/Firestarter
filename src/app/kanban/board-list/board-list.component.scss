@@ -4,22 +4,45 @@
     }    
 }
 
+@mixin tablet {
+    @media (min-width:#{600px}) {
+        @content;
+    }    
+}
+
 .boards {
     width: 100%;
-    padding: 24px;
-    margin: 1em auto;
+    min-height: 22em;
+    margin:0 auto;
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
 
     @include desktop {
         display: grid;
-        grid-template-columns: 24% 24% 24% 24%;
+        grid-template-columns: 285px 285px 285px 285px;
     }
 }  
   
 .cdk-drag-placeholder {
     opacity: 0.2;
-    width: 350px;
     border: 5px dashed gray;
-    margin: 0 10px;    
+
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 22em;
+    margin: 1em auto;
+    padding: 15px;
+    
+    @include tablet {
+        width: 200px;
+    }
+
+    @include desktop {
+        width: 270px;
+    }
 }
   
 .cdk-drag-animating {
@@ -34,18 +57,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 22em;
-    padding: 10px;
-    margin:0 auto;
-}
-
-.create-button-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 5px gray dashed;
-    padding: 40px;
-    max-height: 8em;
+
+    min-width: 315px;
+    max-width: 315px;
+    min-height: 22em;
+    margin: 1em auto;
+    padding: 15px;
+
+    @include tablet {
+        min-width: 195px;
+        max-width: 195px;
+        height: calc(22em - 5px);
+    }
+
+    @include desktop {
+        min-width: 255px;
+        max-width: 255px;
+        height: calc(22em - 5px);
+    }
 }
