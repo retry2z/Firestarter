@@ -1,0 +1,37 @@
+<button mat-raised-button appGoogleSignin>
+    <img ngClass="googleLogo" src="/assets/google-logo.svg" /> Login with Google
+</button>
+
+
+<mat-card>
+    <mat-card-content>
+        <h2>Sign In</h2>        
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-error *ngIf="loginInvalid">
+                The username and password were not recognized.
+            </mat-error>
+
+            <mat-form-field>
+                <mat-label>Email address</mat-label>
+                <input matInput type="text" name="email" placeholder="example@domain.com" formControlName="username">
+                <mat-error>
+                    Please provide a valid email address.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" name="password" formControlName="password">
+                <mat-error>
+                    Password must be at least 8 symbols.
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button>Submit</button>
+        </form>
+    </mat-card-content>
+    <h3>Don't have account yet? <a mat-button [routerLink]="['/user/auth/register']"
+            routerLinkActive="active">Register</a></h3>
+</mat-card>

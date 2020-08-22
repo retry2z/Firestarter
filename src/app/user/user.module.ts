@@ -15,7 +15,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
   declarations: [LoginPageComponent, GoogleSigninDirective, EmailLoginComponent, ProfilePageComponent],
   imports: [
     CommonModule,
-    UserRoutingModule,
+    UserRoutingModule,    
     SharedModule,
     ReactiveFormsModule,
   ]

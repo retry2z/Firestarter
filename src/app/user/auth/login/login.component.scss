@@ -1,0 +1,30 @@
+img {
+ width: 1.25em;
+}
+
+mat-card {
+  margin: 2em auto;
+  text-align: center;
+  min-width: 520px;
+  max-width: 520px;
+
+   button {
+      margin: 6px
+   }
+
+
+   a {
+     text-decoration: none;
+   }
+}
+
+mat-form-field {
+  display: block;
+  padding: 0 18px;
+  margin-bottom: 4px;
+}
+
+mat-icon {
+  font-size: 18px;
+  margin-left: 5px;
+} 

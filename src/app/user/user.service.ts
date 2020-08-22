@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class UserService {
 
-  _currentUser: false;
+  _currentUser = false;
 
   get isLogged() { return !!this._currentUser; }
 
@@ -36,5 +36,5 @@ export class UserService {
 
   async logout() {
     return await this.afAuth.signOut();
-  }  
+  }
 }

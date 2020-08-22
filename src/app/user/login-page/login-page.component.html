@@ -10,9 +10,9 @@
   </div>
 </div>
 
-<div *ngIf="userService.currentUser as user" ngClass="logout">
+<div *ngIf="!!userService.currentUser" ngClass="logout">
   <p>
-    Logged in as <strong>{{ user.email }}</strong>
+    <!-- Logged in as <strong>{{ userService.currentUser.email }}</strong> -->
   </p>
 
   <button mat-stroked-button (click)="userService.logout()">Logout</button>
