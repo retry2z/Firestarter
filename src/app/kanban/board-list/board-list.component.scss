@@ -13,16 +13,26 @@
 .boards {
     width: 100%;
     min-height: 22em;
-
+    .handle {
+        cursor: move;
+        visibility: hidden;
+    }
+    
     @include tablet {
         display: grid;
         grid-template-columns: 33.3% 33.3% 33.3%;
+        .handle {
+            visibility: visible;
+        }
     }
 
     @include desktop {
         display: grid;
         padding: 0px calc((100% - 1140px) / 2);
         grid-template-columns: 285px 285px 285px 285px;
+        .handle {
+            visibility: visible;
+        }
     }
 }  
   
