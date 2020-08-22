@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShellComponent } from './shell/shell.component';
 import { DeleteButtonComponent } from './delete-button/delete-button.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const components = [ShellComponent, DeleteButtonComponent];
 
@@ -32,6 +33,7 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
+  MatProgressSpinnerModule,
   RouterModule
 ];
 

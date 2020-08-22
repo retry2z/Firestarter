@@ -5,17 +5,33 @@
     min-height: 22em;
     margin: 1em auto;
     padding: 15px;   
-    text-align: left;   
      
     mat-card-header {
         text-transform: uppercase;        
         justify-content:space-between;
     }
 }
+
+.outer-card.active {
+    visibility: hidden;
+    opacity: 0;   
+
+    transition: opacity 1s ease-out;
+    visibility: visible;
+    opacity: 1;
+}
   
 .inner-card {
     margin: 5px 0;
     cursor: pointer;
+    text-align: left;   
+}
+
+.center-card mat-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
 }
 
 .cdk-drag-animating {
