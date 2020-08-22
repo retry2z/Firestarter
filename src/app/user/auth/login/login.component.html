@@ -1,21 +1,16 @@
-<button mat-raised-button appGoogleSignin>
-    <img ngClass="googleLogo" src="/assets/google-logo.svg" /> Login with Google
-</button>
-
-
 <mat-card>
     <mat-card-content>
-        <h2>Sign In</h2>        
+        <h1>Login</h1>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-            <mat-error *ngIf="loginInvalid">
-                The username and password were not recognized.
+            <mat-error ngClass="auth_error" *ngIf="loginInvalid">
+                Email address or password were not recognized.
             </mat-error>
 
             <mat-form-field>
                 <mat-label>Email address</mat-label>
-                <input matInput type="text" name="email" placeholder="example@domain.com" formControlName="username">
+                <input matInput type="text" name="email" placeholder="example@domain.com" formControlName="email">
                 <mat-error>
                     Please provide a valid email address.
                 </mat-error>
@@ -29,9 +24,21 @@
                 </mat-error>
             </mat-form-field>
 
-            <button mat-raised-button>Submit</button>
+            <p>
+                <a ngClass="auth_forgot" [routerLink]="['/user/auth/reset-password']" routerLinkActive="active">
+                    Forgot
+                    password?
+                </a>
+            </p>
+
+            <button ngClass="auth_button" mat-raised-button [disabled]="loading">Submit</button>
         </form>
     </mat-card-content>
-    <h3>Don't have account yet? <a mat-button [routerLink]="['/user/auth/register']"
-            routerLinkActive="active">Register</a></h3>
+    <h3>Don't have account yet? <a mat-button [routerLink]="['/user/auth/register']" routerLinkActive="active">
+            Create one</a>
+    </h3>
+    <h3>or sign in with:</h3>
+    <button mat-icon-button>
+        <img src="/assets/google-logo.svg" />
+    </button>
 </mat-card>

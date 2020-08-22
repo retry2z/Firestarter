@@ -1,11 +1,11 @@
 <mat-card>
     <mat-card-content>
-        <h2>Create Account</h2>
+        <h1>Create Account</h1>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
             <mat-error *ngIf="registerInvalid">
-                The username and password were not recognized.
+                Email address is already in use.
             </mat-error>
 
             <mat-error
@@ -15,7 +15,7 @@
 
             <mat-form-field>
                 <mat-label>
-                    <mat-icon inline="true">email</mat-icon>Email address
+                    Email address
                 </mat-label>
                 <input matInput type="text" name="email" placeholder="example@domain.com" formControlName="email">
                 <mat-error>
@@ -39,17 +39,9 @@
                         Password must be at least 8 symbols.
                     </mat-error>
                 </mat-form-field>
-
-                <p>
-                    <a ngClass="auth_forgot" [routerLink]="['/user/auth/reset-password']" routerLinkActive="active">
-                        Forgot
-                        password?
-                    </a>
-                </p>
-
             </div>
 
-            <button mat-raised-button>Submit</button>
+            <button ngClass="auth_button" mat-raised-button>Submit</button>
         </form>
     </mat-card-content>
     <h3>Already Registered? <a mat-button ngClass="auth_link" [routerLink]="['/user/auth/login']"
