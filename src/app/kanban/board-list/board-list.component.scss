@@ -1,5 +1,5 @@
 @mixin desktop {
-    @media (min-width:#{840px}) {
+    @media (min-width:#{960px}) {
         @content;
     }    
 }
@@ -13,7 +13,6 @@
 .boards {
     width: 100%;
     min-height: 22em;
-    margin:0 auto;
 
     @include tablet {
         display: grid;
@@ -22,6 +21,7 @@
 
     @include desktop {
         display: grid;
+        padding: 0px calc((100% - 1140px) / 2);
         grid-template-columns: 285px 285px 285px 285px;
     }
 }  
@@ -44,22 +44,9 @@
     align-items: center;
     justify-content: center;
     border: 5px gray dashed;
-
-    min-width: 315px;
-    max-width: 315px;
-    min-height: 22em;
+    min-width: calc(95% - 5px);
+    max-width: calc(95% - 5px);
+    height: calc(22em - 5px);
     margin: 1em auto;
-    padding: 15px;
-
-    @include tablet {
-        min-width: 195px;
-        max-width: 195px;
-        height: calc(22em - 5px);
-    }
-
-    @include desktop {
-        min-width: 255px;
-        max-width: 255px;
-        height: calc(22em - 5px);
-    }
+    padding: 15px; 
 }
