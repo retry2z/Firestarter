@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { UserService} from '../user.service';
 
 @Component({
   selector: 'app-email-login',
@@ -19,7 +16,7 @@ export class EmailLoginComponent implements OnInit {
 
   serverMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) {}
+  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder, public userService: UserService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -75,13 +72,13 @@ export class EmailLoginComponent implements OnInit {
 
     try {
       if (this.isLogin) {
-        await this.afAuth.signInWithEmailAndPassword(email, password);
+        await this.userService.login(email, password);
       }
       if (this.isSignup) {
-        await this.afAuth.createUserWithEmailAndPassword(email, password);
+        await this.userService.register(email, password);
       }
       if (this.isPasswordReset) {
-        await this.afAuth.sendPasswordResetEmail(email);
+        await await this.userService.passwordReset(email);
         this.serverMessage = 'Check your email';
       }
     } catch (err) {
