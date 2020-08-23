@@ -1,3 +1,7 @@
-<app-shell>
-  <router-outlet></router-outlet>
-</app-shell>
+<ng-container *ngIf="isReady">
+  <app-shell>
+    <router-outlet></router-outlet>
+  </app-shell>
+</ng-container>
+
+<ng-container *ngIf="!isReady">Loading...</ng-container>
