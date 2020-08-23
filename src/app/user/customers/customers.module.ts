@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
-import { LogoutComponent } from './logout/logout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -11,7 +10,7 @@ import { CustomersRoutingModule } from './customers-routing.module';
 
 
 @NgModule({
-    declarations: [ProfileComponent, LogoutComponent],
+    declarations: [ProfileComponent],
     imports: [
         CommonModule,
         CustomersRoutingModule,

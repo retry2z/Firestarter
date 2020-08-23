@@ -1,26 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from 'firebase';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  _currentUser = false;
+  get user(): Observable<User> { return this.afAuth.user }
 
-  get isLogged() { return !!this._currentUser; }
-
-  get currentUser() { return this._currentUser; }
-
-  authCompleted$ = this.afAuth.authState;
-
-  constructor(private afAuth: AngularFireAuth) {
-    this.authCompleted$.subscribe((user: any) => {
-      this._currentUser = user;
-    }, () => {
-      this._currentUser = null;
-    });
-  }
+  constructor(public afAuth: AngularFireAuth) { }
 
   async register(email: string, password: string) {
     return await this.afAuth.createUserWithEmailAndPassword(email, password);

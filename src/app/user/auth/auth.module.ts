@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { GoogleSigninDirective } from './providers/google-signin.directive';
+
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +15,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 
 @NgModule({
-    declarations: [LoginComponent, RegisterComponent],
+    declarations: [GoogleSigninDirective, LoginComponent, RegisterComponent],
     imports: [
         CommonModule,
         AuthRoutingModule,

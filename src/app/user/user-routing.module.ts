@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { AngularFireAuthGuard, redirectLoggedInTo } from '@angular/fire/auth-guard';
 
+const redirectLoggedIn = () => redirectLoggedInTo(['/']);
 
 const routes: Routes = [
-  { path: '', component: LoginPageComponent },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedIn },
+  },
+  {
+    path: '',
+    loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule),
+    canActivate: [AngularFireAuthGuard],
   },
 ];
 

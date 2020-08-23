@@ -4,7 +4,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
@@ -12,9 +11,10 @@ const routes: Routes = [
   {
     path: 'kanban',
     loadChildren: () =>
-      import('./kanban/kanban.module').then(m => m.KanbanModule),
+    import('./kanban/kanban.module').then(m => m.KanbanModule),
     canActivate: [AngularFireAuthGuard],
   },
+  { path: '', component: HomePageComponent },
 ];
 
 @NgModule({

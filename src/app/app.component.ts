@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from './user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,5 @@ import { UserService } from './user/user.service';
 })
 
 export class AppComponent {
-  get isReady(): boolean {
-    return this.userService.currentUser;
-  }
-
-  constructor(private userService: UserService) { }
 
 }
