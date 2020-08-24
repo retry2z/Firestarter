@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,13 @@ import { UserService } from '../../user.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  loginInvalid: boolean = false;
+  errorMessage: string;
   loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    public userService: UserService
+    public userService: UserService,
+    public router: Router
   ) { }
 
   async onSubmit() {
@@ -29,10 +31,13 @@ export class LoginComponent implements OnInit {
 
     try {
       await this.userService.login(email, password);
+      this.router.navigate(['']);
       this.loading = false;
     }
     catch (e) {
-      this.loginInvalid = true;
+      this.errorMessage = e.message;
+      setTimeout(() => this.errorMessage = '', 2500);
+
       this.loading = false;
     }
   }

@@ -4,8 +4,8 @@
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-            <mat-error ngClass="auth_error" *ngIf="loginInvalid">
-                Email address or password were not recognized.
+            <mat-error ngClass="auth_error" *ngIf="errorMessage">
+                {{errorMessage}}
             </mat-error>
 
             <mat-form-field>
@@ -25,7 +25,7 @@
             </mat-form-field>
 
             <p>
-                <a ngClass="auth_forgot" [routerLink]="['/user/auth/reset-password']" routerLinkActive="active">
+                <a ngClass="auth_forgot" routerLink="/user/auth/reset-password">
                     Forgot
                     password?
                 </a>

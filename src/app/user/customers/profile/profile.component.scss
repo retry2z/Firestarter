@@ -1,0 +1,55 @@
+.profile_image {
+  position: relative;
+  margin: 5px 0;
+  z-index: 0;
+  cursor: pointer;
+
+  .profile_avatar {
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  
+  .profile_edit_img {
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    background-color: #FA9A34;
+    border:2px solid #FA9A34; 
+    height: 25px;
+    width: 25px;
+    z-index: 3;
+  }
+}
+
+mat-card {
+  margin: 2em auto;
+  min-width: 330px;
+  max-width: 330px;  
+
+  h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+
+  .auth_error {
+    margin: 16px;
+  }
+
+  .auth_button {
+      margin: 14px;
+      padding: 3px 86px;
+      font-size: 17px;
+   }
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 4px;
+}
+
+mat-icon {
+  font-size: 18px;
+  margin-left: 5px;
+} 

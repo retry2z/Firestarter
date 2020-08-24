@@ -1,40 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { passwordMatch } from 'src/app/shared/validators/password-match';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
 
   form: FormGroup;
+  errorMessage: string;
+  loading: boolean = false;
 
-  registerInvalid: boolean = false;
+  constructor(private fb: FormBuilder, public userService: UserService) { }
 
-  constructor(
-    private fb: FormBuilder,
-  ) { }
-
-  onSubmit() {
+  async onSubmit() {
     if (this.form.invalid) {
       return
     }
 
-    console.log(this.form.value);
+    this.loading = true;
+    const { email, password } = this.form.value;
+
+
+    try {
+      await this.userService.login(email, password);
+      this.loading = false;
+    }
+    catch (e) {
+      this.errorMessage = e;
+      setTimeout(() => this.errorMessage = '');
+
+      this.loading = false;
+    }
   }
 
   ngOnInit(): void {
     const url_pattern = '((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z0-9\&\.\/\?\:@\-_=#])*';
 
     this.form = this.fb.group({
-      displayName: [''],
-      imageUrl: ['', [Validators.pattern(url_pattern)]],
-      passData: this.fb.group({
-        password: ['', [Validators.required, Validators.minLength(8)]],
-        rePassword: ['', [Validators.required, Validators.minLength(8)]]
-      }, { validators: [passwordMatch] }),
+      displayName: [this.userService.currentUser.displayName],
+      photoURL: [this.userService.currentUser.photoURL || '', [Validators.pattern(url_pattern)]],
     });
   }
 }

@@ -1,16 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component} from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { shareReplay, map } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
 import { User } from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit, OnDestroy {
+export class ShellComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.Handset])
     .pipe(
@@ -18,22 +19,14 @@ export class ShellComponent implements OnInit, OnDestroy {
       shareReplay()
     )
 
-  user$: Observable<User> = this.userService.user$;
-  sub: Subscription;
-
-
-
-  constructor(private breakpointObserver: BreakpointObserver, public userService: UserService) { }
-
-  ngOnInit() {
-
-  }
-
-  ngOnDestroy() {
-
-  }
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public userService: UserService,
+    public router: Router
+  ) { }
 
   logout() {
+    this.router.navigate(['']);
     this.userService.logout();
   }
 }

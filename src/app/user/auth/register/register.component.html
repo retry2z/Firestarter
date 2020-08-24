@@ -4,8 +4,8 @@
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-            <mat-error *ngIf="registerInvalid">
-                Email address is already in use.
+            <mat-error *ngIf="errorMessage">
+                {{errorMessage}}
             </mat-error>
 
             <mat-error

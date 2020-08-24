@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { Observable } from 'rxjs';
-import { tap, shareReplay } from 'rxjs/operators';
+import { shareReplay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class UserService {
 
   get isLogged() { return !!this.currentUser; }
 
-  authCompleted$ = this.afAuth.authState.pipe(shareReplay(1));
+  authCompleted$ = this.afAuth.user.pipe(shareReplay(1));
 
   constructor(public afAuth: AngularFireAuth) {
     this.authCompleted$.subscribe((user: User) => {
