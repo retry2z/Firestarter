@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from 'firebase';
+import { User, auth } from 'firebase';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 
@@ -31,6 +31,10 @@ export class UserService {
 
   async login(email: string, password: string) {
     return await this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  async update(displayName: string, photoURL: string) {
+    return await this.currentUser.updateProfile({ displayName, photoURL });
   }
 
   async passwordReset(email: string) {

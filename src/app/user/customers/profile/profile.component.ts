@@ -21,11 +21,11 @@ export class ProfileComponent implements OnInit {
     }
 
     this.loading = true;
-    const { email, password } = this.form.value;
+    const { displayName, photoURL } = this.form.value;
 
 
     try {
-      await this.userService.login(email, password);
+      await this.userService.update(displayName, photoURL);
       this.loading = false;
     }
     catch (e) {
