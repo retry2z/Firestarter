@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User, auth } from 'firebase';
-import { Observable } from 'rxjs';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { User } from 'firebase';
 import { shareReplay } from 'rxjs/operators';
 
 @Injectable({
@@ -9,15 +9,13 @@ import { shareReplay } from 'rxjs/operators';
 })
 export class UserService {
 
-  user$: Observable<User>;
-
   currentUser: User;
 
   get isLogged() { return !!this.currentUser; }
 
   authCompleted$ = this.afAuth.user.pipe(shareReplay(1));
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private storage: AngularFireStorage) {
     this.authCompleted$.subscribe((user: User) => {
       this.currentUser = user;
     }, () => {
@@ -34,11 +32,22 @@ export class UserService {
   }
 
   async update(displayName: string, photoURL: string) {
-    return await this.currentUser.updateProfile({ displayName, photoURL });
+    const data = {
+      displayName: displayName || this.currentUser.displayName,
+      photoURL: photoURL || this.currentUser.photoURL
+    }
+    return await this.currentUser.updateProfile(data);
   }
 
   async passwordReset(email: string) {
     return await this.afAuth.sendPasswordResetEmail(email);
+  }
+
+  async uploadFile(imageAsFile) {
+    await this.storage.upload(`/users/${this.currentUser.uid}`, imageAsFile);
+    const photoRef$ = await this.storage.ref('users').child(this.currentUser.uid).getDownloadURL();
+
+    photoRef$.subscribe(photoURL => this.update(null, photoURL));
   }
 
   async logout() {

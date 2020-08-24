@@ -1,20 +1,19 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 const routes: Routes =
     [
         {
             path: '',
-            canActivate: [
-               // AuthGuard
-            ],
-            data: {
-                isLogged: true,
-            },
             children: [
                 {
                     path: 'profile',
                     component: ProfileComponent,
+                },
+                {
+                    path: 'upload',
+                    component: ImageUploadComponent,
                 },
             ],
         }

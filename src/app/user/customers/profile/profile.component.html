@@ -3,7 +3,7 @@
     <mat-card-content>
         <h2>{{userService.currentUser.displayName}}</h2>
 
-        <div ngClass="profile_image" routerLink="/user/auth/register">
+        <div ngClass="profile_image" routerLink="/user/upload">
             <img mat-card-image ngClass="profile_avatar"
                 [src]="userService.currentUser.photoURL || 'assets/default-user.png'" />
             <img ngClass="profile_edit_img" src='assets/edit-btn-white.svg' alt='Edit' />

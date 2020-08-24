@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
     }
     catch (e) {
       this.errorMessage = e;
-      setTimeout(() => this.errorMessage = '');
+      setTimeout(() => this.errorMessage = '', 2500);
 
       this.loading = false;
     }
