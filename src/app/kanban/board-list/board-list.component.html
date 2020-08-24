@@ -3,6 +3,8 @@
         <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
     </app-board>
 
+    <app-board *ngIf="!boards" [board]="false"> </app-board>
+
     <div ngClass="button-card">
         <button mat-raised-button color="accent" cdkDragDisabled (click)="openBoardDialog()">
             New Board

@@ -1,6 +1,5 @@
-<mat-card ngClass="outer-card">
+<mat-card ngClass="outer-card" *ngIf="board">
     <mat-card-header>
-        <!-- Slot for the handle -->
         <mat-card-title ngClass="title"> {{ board.title }} </mat-card-title>
         <ng-content></ng-content>
     </mat-card-header>
@@ -17,5 +16,19 @@
             <mat-icon>add</mat-icon>
         </button>
         <app-delete-button (delete)="handleDelete()"></app-delete-button>
+    </div>
+</mat-card>
+
+<mat-card ngClass="outer-card" *ngIf="!board">
+    <mat-card-header>
+        <mat-card-title ngClass="title"> Loading... </mat-card-title>
+    </mat-card-header>
+
+    <div ngClass="tasks">
+        <div ngClass="inner-card center-card">
+            <mat-card>
+                <mat-spinner></mat-spinner>
+            </mat-card>
+        </div>
     </div>
 </mat-card>
