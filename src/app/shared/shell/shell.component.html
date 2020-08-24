@@ -15,7 +15,7 @@
 
       <div *ngIf="userService.isLogged">
         <a mat-list-item routerLink="/user/profile" (click)="drawer.close()">Profile</a>
-        <a mat-list-item routerLink="/kanban" (click)="drawer.close()">Kanban Demo</a>
+        <a mat-list-item routerLink="/kanban" (click)="drawer.close()">Kanban</a>
         <a mat-list-item routerLink="/ssr" (click)="drawer.close()">SSR Demo</a>
         <a mat-list-item (click)="logout()">Logout</a>
       </div>
@@ -48,7 +48,8 @@
             <span>SSR demo</span>
           </a>
           <a ngClass="nav-item" mat-button [matMenuTriggerFor]="menu">
-            <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'">
+            <img *ngIf="user.photoURL" class="avatar" [src]="user.photoURL" />
+            <mat-icon *ngIf="!user.photoURL" color="primary">person</mat-icon>
             <span>{{user.email}}</span>
           </a>
         </div>
