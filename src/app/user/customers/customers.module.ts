@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile-page/profile.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
-import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { PasswordChangeComponent } from './profile-password-change/profile-password-change.component';
+import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -18,7 +20,8 @@ import { CustomersRoutingModule } from './customers-routing.module';
         ProfileComponent,
         ProfileCardComponent,
         ImageUploadComponent,
-        PasswordResetComponent
+        PasswordChangeComponent,
+        ProfileUpdateComponent
     ],
     imports: [
         CommonModule,

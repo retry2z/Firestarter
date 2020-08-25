@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { User } from 'firebase';
+import * as firebase from 'firebase';
 import { shareReplay } from 'rxjs/operators';
 
 @Injectable({
@@ -9,14 +9,14 @@ import { shareReplay } from 'rxjs/operators';
 })
 export class UserService {
 
-  currentUser: User;
+  currentUser: firebase.User;
 
   get isLogged() { return !!this.currentUser; }
 
-  authCompleted$ = this.afAuth.user.pipe(shareReplay(1));
+  private authCompleted$ = this.afAuth.user.pipe(shareReplay(1));
 
   constructor(public afAuth: AngularFireAuth, private storage: AngularFireStorage) {
-    this.authCompleted$.subscribe((user: User) => {
+    this.authCompleted$.subscribe((user: firebase.User) => {
       this.currentUser = user;
     }, () => {
       this.currentUser = null;
@@ -37,6 +37,15 @@ export class UserService {
       photoURL: photoURL || this.currentUser.photoURL
     }
     return await this.currentUser.updateProfile(data);
+  }
+
+  async changePassword(currentPassword, newPassword: string) {
+
+    console.log(newPassword);
+    const credentials = await firebase.auth.EmailAuthProvider.credential(this.currentUser.email, currentPassword);
+
+    await this.currentUser.reauthenticateWithCredential(credentials);
+    return await this.currentUser.updatePassword(newPassword);
   }
 
   async passwordReset(email: string) {

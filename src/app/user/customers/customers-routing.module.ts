@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile-page/profile.component';
-import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 const routes: Routes =
     [
@@ -11,14 +10,9 @@ const routes: Routes =
                     path: 'profile',
                     component: ProfileComponent,
                 },
-                {
-                    path: 'upload',
-                    component: ImageUploadComponent,
-                },
             ],
         }
 
     ];
-
 
 export const CustomersRoutingModule = RouterModule.forChild(routes);

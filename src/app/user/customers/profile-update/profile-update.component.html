@@ -1,4 +1,4 @@
-<mat-card class="profile-card">
+<mat-card class="reset_card">
     <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -19,7 +19,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <button ngClass="reset_button" mat-raised-button [disabled]="loading">Submit</button>
+            <button ngClass="reset_button" mat-raised-button [disabled]="loading">Save</button>
         </form>
     </mat-card-content>
 </mat-card>

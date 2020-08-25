@@ -10,7 +10,7 @@ export class ImageUploadComponent implements OnInit {
 
   errorMessage: string;
   loading: boolean = false;
-  _imageFilename: string;
+  _imageFilename: string = '';
   imageAsFile;
 
   get imageFilename() { return this._imageFilename }

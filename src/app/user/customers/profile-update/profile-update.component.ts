@@ -3,12 +3,12 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-password-reset',
-  templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.scss']
+  selector: 'app-profile-update',
+  templateUrl: './profile-update.component.html',
+  styleUrls: ['./profile-update.component.scss']
 })
 
-export class PasswordResetComponent implements OnInit {
+export class ProfileUpdateComponent implements OnInit {
 
   form: FormGroup;
   errorMessage: string;
@@ -37,11 +37,11 @@ export class PasswordResetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const url_pattern = '((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z0-9\&\.\/\?\:@\-_=#])*';
+    const pattern = /^(http|https):/g;
 
     this.form = this.fb.group({
       displayName: [this.userService.currentUser.displayName],
-      photoURL: [this.userService.currentUser.photoURL || '', [Validators.pattern(url_pattern)]],
+      photoURL: [this.userService.currentUser.photoURL || '', [Validators.pattern(pattern)]],
     });
   }
 

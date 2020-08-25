@@ -1,6 +1,7 @@
-mat-card {
-    margin: 2em auto;
-    max-width: 400px;
+mat-card.reset_card {
+    margin: 1em auto;
+    min-width: 320px;
+    max-width: 420px;
 
     .reset_error {
         margin: 16px;
@@ -13,7 +14,7 @@ mat-card {
     }
 
     mat-form-field {
-        display: block;
+        display: block;        
         margin-bottom: 4px;
         padding: 15px;
     }
