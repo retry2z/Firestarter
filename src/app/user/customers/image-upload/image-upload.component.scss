@@ -1,68 +1,54 @@
-.profile_image {
-    margin: 5px 0;
-
-    .profile_avatar {
-        object-fit: cover;
-    }
-}
-  
 mat-card {
-margin: 2em auto;
-min-width: 330px;
-max-width: 330px;  
+    min-width: 560px;
+    max-width: 560px;  
+    text-align: right;
 
-h2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-}
-
-.auth_error {
-    margin: 16px;
-}
-
-.auth_button {
-    margin: 14px;
-    padding: 3px 58px;
-    font-size: 17px;
+    .image_error {
+        margin: 16px;
     }
-}
+
+    .input-file-name {
+        font-size: 22px;
+        padding: 0 20px;    
+    }
   
-mat-form-field {
-    display: block;
-    margin-bottom: 4px;
-}
-  
-mat-icon {
-    margin-right: 9px;
-    transform: scale(1.7);
-} 
+    mat-icon {
+        margin-right: 9px;
+        transform: scale(1.7);
+    } 
 
-.input-file {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
+    .input-file {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }    
+   
+    .input-file + label {
+        cursor: pointer;
+        display: inline-block;
+        background-color: #F0D9C0;
+        border-radius: 5px;
+        color: black; 
+        font-size: 17px;
+        padding: 10px 32px;
+        transition: all 0.2s ease-in;
+    }
+    
+    .input-file:focus + label {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+    
+    .input-file + label * {
+        pointer-events: none;
+    }
 
-.input-file + label {
-    cursor: pointer;
-    display: inline-block;
-    background-color: #F0D9C0;
-    border-radius: 5px;
-    color: black; 
-    font-size: 17px;
-    padding: 12px 46px;
-    transition: all 0.2s ease-in;
-}
-
-.input-file:focus + label {
-	outline: 1px dotted #000;
-	outline: -webkit-focus-ring-color auto 5px;
-}
-
-.input-file + label * {
-	pointer-events: none;
+    .image_button {
+        margin: 12px;
+        padding: 3px 38px;
+        font-size: 17px;
+    }
 }

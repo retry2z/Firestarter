@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-password-reset',
+  templateUrl: './password-reset.component.html',
+  styleUrls: ['./password-reset.component.scss']
 })
-export class ProfileComponent implements OnInit {
+
+export class PasswordResetComponent implements OnInit {
 
   form: FormGroup;
   errorMessage: string;
@@ -22,7 +23,6 @@ export class ProfileComponent implements OnInit {
 
     this.loading = true;
     const { displayName, photoURL } = this.form.value;
-
 
     try {
       await this.userService.update(displayName, photoURL);
@@ -44,4 +44,5 @@ export class ProfileComponent implements OnInit {
       photoURL: [this.userService.currentUser.photoURL || '', [Validators.pattern(url_pattern)]],
     });
   }
+
 }

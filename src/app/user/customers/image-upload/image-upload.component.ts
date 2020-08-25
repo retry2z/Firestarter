@@ -10,7 +10,10 @@ export class ImageUploadComponent implements OnInit {
 
   errorMessage: string;
   loading: boolean = false;
+  _imageFilename: string;
   imageAsFile;
+
+  get imageFilename() { return this._imageFilename }
 
   constructor(public userService: UserService) { }
 
@@ -20,6 +23,8 @@ export class ImageUploadComponent implements OnInit {
   setImage(event) {
     const imageAsFile = event.target.files[0];
     const supportedFiles = ['jpeg', 'gif', 'png', 'apng', 'svg', 'png', 'jpg'];
+
+    this._imageFilename = imageAsFile.name;
 
     if (!imageAsFile) {
       this.errorMessage = 'Please choose a file';

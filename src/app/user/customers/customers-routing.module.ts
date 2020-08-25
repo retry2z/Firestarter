@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile-page/profile.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 const routes: Routes =

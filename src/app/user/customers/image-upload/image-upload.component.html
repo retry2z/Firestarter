@@ -1,19 +1,15 @@
-<mat-card class="profile-card">
+<mat-card>
     <mat-card-content>
-        <div ngClass="profile_image">
-            <img mat-card-image ngClass="profile_avatar"
-                [src]="userService.currentUser.photoURL || 'assets/default-user.png'" />
-        </div>
-
-        <mat-error ngClass="auth_error" *ngIf="errorMessage">
+        <mat-error ngClass="image_error" *ngIf="errorMessage">
             {{errorMessage}}
         </mat-error>
 
-        <input type="file" id="file" class="input-file" (change)="setImage($event)" />
+        <span *ngIf="imageFilename" ngClass="input-file-name">{{imageFilename}}</span>
+        <input type="file" id="file" ngClass="input-file" (change)="setImage($event)" />
         <label for="file">
             <mat-icon inline="true" color="primary">unarchive</mat-icon>Choose a file...
         </label>
 
-        <button ngClass="auth_button" mat-raised-button [disabled]="loading" (click)="submitHandler()">Submit</button>
+        <button ngClass="image_button" mat-raised-button [disabled]="loading" (click)="submitHandler()">Submit</button>
     </mat-card-content>
 </mat-card>
