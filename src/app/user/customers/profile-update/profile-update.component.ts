@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-profile-update',
+  templateUrl: './profile-update.component.html',
+  styleUrls: ['./profile-update.component.scss']
 })
-export class ProfileComponent implements OnInit {
+
+export class ProfileUpdateComponent implements OnInit {
 
   form: FormGroup;
   errorMessage: string;
@@ -21,27 +22,27 @@ export class ProfileComponent implements OnInit {
     }
 
     this.loading = true;
-    const { email, password } = this.form.value;
-
+    const { displayName, photoURL } = this.form.value;
 
     try {
-      await this.userService.login(email, password);
+      await this.userService.update(displayName, photoURL);
       this.loading = false;
     }
     catch (e) {
       this.errorMessage = e;
-      setTimeout(() => this.errorMessage = '');
+      setTimeout(() => this.errorMessage = '', 2500);
 
       this.loading = false;
     }
   }
 
   ngOnInit(): void {
-    const url_pattern = '((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z0-9\&\.\/\?\:@\-_=#])*';
+    const pattern = /^(http|https):/g;
 
     this.form = this.fb.group({
       displayName: [this.userService.currentUser.displayName],
-      photoURL: [this.userService.currentUser.photoURL || '', [Validators.pattern(url_pattern)]],
+      photoURL: [this.userService.currentUser.photoURL || '', [Validators.pattern(pattern)]],
     });
   }
+
 }

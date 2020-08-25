@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { passwordMatch } from '../../../shared/validators/password-match';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
+import { passwordMatch } from 'src/app/shared/validators/password-match';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-profile-password-change',
+  templateUrl: './profile-password-change.component.html',
+  styleUrls: ['./profile-password-change.component.scss']
 })
-export class RegisterComponent implements OnInit {
+
+export class PasswordChangeComponent implements OnInit {
 
   form: FormGroup;
   errorMessage: string;
@@ -27,10 +28,11 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    const { email, passData } = this.form.value;
+    const { currentPassword, passData } = this.form.value;
+
 
     try {
-      await this.userService.register(email, passData.password);
+      await this.userService.changePassword(currentPassword, passData.password);
       this.router.navigate(['']);
       this.loading = false;
     }
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      currentPassword: ['', [Validators.required, Validators.minLength(8)]],
       passData: this.fb.group({
         password: ['', [Validators.required, Validators.minLength(8)]],
         rePassword: ['', [Validators.required, Validators.minLength(8)]]

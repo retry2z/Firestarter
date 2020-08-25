@@ -1,16 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile-page/profile.component';
 
 const routes: Routes =
     [
         {
             path: '',
-            canActivate: [
-               // AuthGuard
-            ],
-            data: {
-                isLogged: true,
-            },
             children: [
                 {
                     path: 'profile',
@@ -20,6 +14,5 @@ const routes: Routes =
         }
 
     ];
-
 
 export const CustomersRoutingModule = RouterModule.forChild(routes);

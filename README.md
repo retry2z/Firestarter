@@ -10,6 +10,7 @@ Firestarter is an Angular PWA powered by Firebase. The application is about wher
 
 ## Features
 - Angular 10 + Firebase
+- Responsive UI
 - Installable PWA
 - OAuth and Email/Password Signup with Firebase
 - Drag & drop Kanban demo with Firestore
@@ -36,13 +37,13 @@ Update the `environment.prod.ts` and `environment.ts` files.
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'APIKEY',
-    authDomain: 'DEV-APP.firebaseapp.com',
-    databaseURL: 'https://DEV-APP.firebaseio.com',
-    projectId: 'DEV-APP',
-    storageBucket: 'DEV-APP.appspot.com',
-    messagingSenderId: '...',
-    appId: '...',
+    apiKey: '...........',
+    authDomain: '...........',
+    databaseURL: '...........',
+    projectId: '...........',
+    storageBucket: '...........',
+    messagingSenderId: '...........',
+    appId: '...........',
   }
 };
 ```

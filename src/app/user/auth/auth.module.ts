@@ -12,10 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthRoutingModule } from './auth-routing.module';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
-    declarations: [GoogleSigninDirective, LoginComponent, RegisterComponent],
+    declarations: [GoogleSigninDirective, LoginComponent, RegisterComponent, ForgotPasswordComponent],
     imports: [
         CommonModule,
         AuthRoutingModule,

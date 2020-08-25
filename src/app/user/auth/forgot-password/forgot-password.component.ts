@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { passwordMatch } from '../../../shared/validators/password-match';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-login',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit {
 
   form: FormGroup;
   errorMessage: string;
@@ -27,11 +26,12 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    const { email, passData } = this.form.value;
+    const { email } = this.form.value;
+
 
     try {
-      await this.userService.register(email, passData.password);
-      this.router.navigate(['']);
+      await this.userService.passwordReset(email);
+      this.router.navigate(['/user/auth/login']);
       this.loading = false;
     }
     catch (e) {
@@ -45,10 +45,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      passData: this.fb.group({
-        password: ['', [Validators.required, Validators.minLength(8)]],
-        rePassword: ['', [Validators.required, Validators.minLength(8)]]
-      }, { validators: [passwordMatch] }),
     });
   }
+
 }
