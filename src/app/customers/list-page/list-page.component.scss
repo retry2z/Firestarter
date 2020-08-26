@@ -1,0 +1,20 @@
+mat-nav-list {
+    max-width: 600px;
+    background-color:#212121; 
+    margin: 0 auto;
+    padding: 24px;
+}
+
+mat-list-item {    
+    mat-icon {
+        margin-right: 9px;
+        transform: scale(1.6);
+    } 
+    margin: 10px 0;
+    transition: transform 300ms ease;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+    transition: transform 300ms ease;
+}
