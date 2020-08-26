@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
   },
   { path: '', component: HomePageComponent },
-  { path: '/ssr', component: HomePageComponent },
+  { path: 'ssr', component: HomePageComponent },
 ];
 
 @NgModule({
