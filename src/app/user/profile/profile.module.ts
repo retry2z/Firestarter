@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { CustomersRoutingModule } from './customers-routing.module';
+import { CustomersRoutingModule } from './profile-routing.module';
 
 @NgModule({
     declarations: [
@@ -35,4 +35,4 @@ import { CustomersRoutingModule } from './customers-routing.module';
         ReactiveFormsModule,
     ]
 })
-export class CustomersModule { }
+export class ProfileModule { }
