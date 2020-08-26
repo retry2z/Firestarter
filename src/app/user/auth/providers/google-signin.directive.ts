@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
   selector: '[appGoogleSignin]'
 })
 export class GoogleSigninDirective {
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth, private router: Router) { }
 
   @HostListener('click')
   onclick() {
-    return this.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    return this.auth.signInWithPopup(new auth.GoogleAuthProvider())
+      .then(() => this.router.navigate(['']));
   }
 }
