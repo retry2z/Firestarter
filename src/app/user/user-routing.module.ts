@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule),
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
     canActivate: [AngularFireAuthGuard],
   },
 ];

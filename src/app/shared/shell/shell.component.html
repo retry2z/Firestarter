@@ -9,6 +9,7 @@
 
       <div *ngIf="!userService.isLogged">
         <a mat-list-item routerLink="/" (click)="drawer.close()">Home</a>
+        <a mat-list-item routerLink="/ssr" (click)="drawer.close()">SSR Demo</a>
         <a mat-list-item routerLink="/user/auth/login" (click)="drawer.close()">Login</a>
         <a mat-list-item routerLink="/user/auth/register" (click)="drawer.close()">Register</a>
       </div>
@@ -55,6 +56,10 @@
         </div>
 
         <div *ngIf="!userService.isLogged">
+          <a ngClass="nav-item" mat-button routerLink="/ssr">
+            <mat-icon color="primary">archive</mat-icon>
+            <span>SSR demo</span>
+          </a>
           <a ngClass="nav-item" mat-button routerLink="/user/auth/login">
             <mat-icon color="primary">login</mat-icon>
             <span>Login</span>
