@@ -6,7 +6,7 @@
 ## Description
 Firestarter is an Angular PWA powered by Firebase. The application is about where logged users can create their own boards with tasks, only owned boards are showed and can be modified/ removed. User can drag n drop to set the order of the tasks and boards. Guests can preview server side rendered html and data. This application is inspired from Trello.  
 
-![](https://firebasestorage.googleapis.com/v0/b/angular-voxer.appspot.com/o/demo-gif.gif?alt=media&token=dadcdb72-eb58-4903-b6b8-c741c27a08c4)
+![]https://firebasestorage.googleapis.com/v0/b/firestarter-dev-ebdf6.appspot.com/o/workplay-demo.gif?alt=media&token=2c3bbf9a-96b1-4ae3-a507-4d1c8ab2a20f)
 ![](https://firebasestorage.googleapis.com/v0/b/firestarter-dev-ebdf6.appspot.com/o/state-pwa.jpg?alt=media&token=b9e195f6-da8d-429f-8117-efb8e71590e0)
 
 
