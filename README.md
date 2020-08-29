@@ -2,6 +2,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/retry2z/FireStarter)
 ![GitHub stars](https://img.shields.io/github/stars/retry2z/FireStarter?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/retry2z/FireStarter?style=social)
+![](https://hub.docker.com/repository/docker/retry2z/firestarter)
 
 ## Description
 Firestarter is an Angular PWA powered by Firebase. The application is about where logged users can create their own boards with tasks, only owned boards are showed and can be modified/ removed. User can drag n drop to set the order of the tasks and boards. Guests can preview server side rendered html and data. This application is inspired from Trello.  
