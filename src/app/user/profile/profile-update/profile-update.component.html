@@ -8,12 +8,12 @@
 
             <mat-form-field>
                 <mat-label>Name</mat-label>
-                <input matInput type="text" name="displayName" placeholder="John Doe" formControlName="displayName">
+                <input matInput (change)="onChange()" type="text" name="displayName" placeholder="John Doe" formControlName="displayName">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Image URL</mat-label>
-                <input matInput type="text" name="photoURL" placeholder="http://" formControlName="photoURL">
+                <input matInput (change)="onChange()" type="text" name="photoURL" placeholder="http://" formControlName="photoURL">
                 <mat-error>
                     Please enter a valid URL.
                 </mat-error>

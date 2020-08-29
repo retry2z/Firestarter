@@ -38,10 +38,15 @@ export class PasswordChangeComponent implements OnInit {
     }
     catch (e) {
       this.errorMessage = e.message;
-      setTimeout(() => this.errorMessage = '', 2500);
-
       this.loading = false;
     }
+  }
+
+  onChange() {
+    if (!this.errorMessage) {
+      return
+    }
+    this.errorMessage = '';
   }
 
   ngOnInit(): void {
