@@ -17,7 +17,7 @@
                 <mat-label>
                     Email address
                 </mat-label>
-                <input matInput type="text" name="email" placeholder="example@domain.com" formControlName="email">
+                <input matInput (change)="onChange()" type="text" name="email" placeholder="example@domain.com" formControlName="email">
                 <mat-error>
                     Please provide a valid email address.
                 </mat-error>
@@ -26,7 +26,7 @@
             <div formGroupName="passData">
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" name="password" formControlName="password">
+                    <input matInput (change)="onChange()" type="password" name="password" formControlName="password">
                     <mat-error>
                         Password must be at least 8 symbols.
                     </mat-error>
@@ -34,7 +34,7 @@
 
                 <mat-form-field>
                     <mat-label>Confirm password</mat-label>
-                    <input matInput type="password" name="rePassword" formControlName="rePassword">
+                    <input matInput (change)="onChange()" type="password" name="rePassword" formControlName="rePassword">
                     <mat-error>
                         Password must be at least 8 symbols.
                     </mat-error>
