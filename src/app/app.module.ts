@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // App Modules
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -18,10 +17,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomePageComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
