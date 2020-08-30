@@ -26,7 +26,7 @@ export class ShellComponent {
   ) { }
 
   logout() {
-    this.router.navigate(['']);
+    this.router.navigate(['user/auth/login']);
     this.userService.logout();
   }
 }
