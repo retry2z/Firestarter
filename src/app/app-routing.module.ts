@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NotFoundPageComponent } from './pages/notFound-page/notFound-page.component';
 
-const redirectLoggedIn = () => redirectLoggedInTo(['/kanban']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/user/auth/login']);
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
     path: 'ssr',
     loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
   },
-  { path: '', redirectTo: '/kanban', pathMatch: 'full' },
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 @NgModule({
