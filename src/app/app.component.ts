@@ -10,10 +10,6 @@ import { SwUpdate } from '@angular/service-worker';
 
 export class AppComponent implements AfterViewInit{
 
-  get isReady(): boolean {
-    return this.userService.currentUser !== undefined;
-  }
-  
   constructor(private userService: UserService, private swUpdate: SwUpdate) { }
 
   ngAfterViewInit() {
