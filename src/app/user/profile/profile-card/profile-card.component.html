@@ -6,7 +6,7 @@
 
     <div ngClass="profile_image" routerLink="/user/auth/register">
         <img mat-card-image ngClass="profile_avatar"
-            [src]="userService.currentUser.photoURL || 'assets/default-user.png'" />
+            [src]="userService.currentUser.photoURL || 'assets/default-user.png'"  alt="profile-avatar"/>
     </div>
 
     <app-image-upload></app-image-upload>

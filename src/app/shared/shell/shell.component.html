@@ -49,7 +49,7 @@
             <span>SSR demo</span>
           </a>
           <a ngClass="nav-item" mat-button [matMenuTriggerFor]="menu">
-            <img *ngIf="user.photoURL" class="avatar" [src]="user.photoURL" />
+            <img *ngIf="user.photoURL" class="avatar" [src]="user.photoURL" alt="profile-avatar" />
             <mat-icon *ngIf="!user.photoURL" color="primary">person</mat-icon>
             <span>{{user.email}}</span>
           </a>
