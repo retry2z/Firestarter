@@ -13,17 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'kanban',
-    loadChildren: () =>
-      import('./kanban/kanban.module').then(m => m.KanbanModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin, },
+    loadChildren: () => import('./kanban/kanban.module').then(m => m.KanbanModule),
   },
   {
     path: 'ssr',
     loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
   },
-  { path: '', component: HomePageComponent, pathMatch: 'full' },
   
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+
   { path: '**', component: NotFoundPageComponent },
 ];
 
