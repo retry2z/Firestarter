@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SeoService } from 'src/app/services/seo.service';
 
 
 @Component({
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
 
-  constructor(  ) { }
+  constructor(private seo: SeoService) { }
+
+  ngOnInit() {
+    this.seo.generateTags({
+      title: 'Kanban demo',
+      description: 'home page: author Retry2z'
+    });
+  }
 }
+ 
