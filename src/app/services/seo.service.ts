@@ -26,8 +26,13 @@ export class SeoService {
 
         // Twitter Card
         { name: 'twitter:card', content: 'summary' },
-        { name: 'twitter:site', content: '@fireship_dev' }
+        { name: 'twitter:site', content: '@fireship_dev' },
+
+        // Site description
+        { name: 'Description', content: description }
       ]
     )
   }
+
+
 }
