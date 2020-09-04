@@ -7,7 +7,8 @@ import { ListPageComponent } from './list-page/list-page.component';
 
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MatCardModule} from '@angular/material/card';
     CustomersRoutingModule,
     MatListModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ]
 })
 export class CustomersModule { }

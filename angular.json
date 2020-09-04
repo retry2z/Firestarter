@@ -23,7 +23,11 @@
               "@firebase/firestore",
               "@firebase/auth",
               "@firebase/util",
-              "@firebase/component"
+              "@firebase/component",
+              "@firebase/remote-config",
+              "@firebase/performance",
+              "@firebase/database",
+              "@firebase/functions"
             ],
             "outputPath": "dist/project-demo/browser",
             "index": "src/index.html",
