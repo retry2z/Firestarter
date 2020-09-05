@@ -50,6 +50,3 @@ export const environment = {
 ```
 
 5.  Run `ng serve`
-
-## Docker repository
-https://hub.docker.com/repository/docker/retry2z/firestarter
